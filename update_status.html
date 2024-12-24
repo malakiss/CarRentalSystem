@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Status</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Update Car Status</h1>
+    <form class="update-status-form">
+      <!-- Plate Number Input -->
+      <div class="form-group">
+        <label for="plate-number">Plate Number</label>
+        <input type="text" id="plate-number" name="plate-number" placeholder="Enter plate number" required>
+      </div>
+      
+      <!-- Updated Status Radio Buttons -->
+      <div class="form-group">
+        <label>Updated Status</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="status" value="available" required>
+            <span class="bubble">Available</span>
+          </label>
+          <label>
+            <input type="radio" name="status" value="rented">
+            <span class="bubble">Rented</span>
+          </label>
+          <label>
+            <input type="radio" name="status" value="out-of-service">
+            <span class="bubble">Out of Service</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="button submit-button">Update Status</button>
+    </form>
+  </div>
+</body>
+</html>

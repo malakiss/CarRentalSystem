@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Report</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Generate Report</h1>
+    <form class="report-form">
+      
+      <!-- Report 1: All reservations within a specified period -->
+      <div class="form-group">
+        <label for="period">All Reservations Within a Specified Period</label>
+        <input type="date" id="start-date" name="start-date" required>
+        <input type="date" id="end-date" name="end-date" required>
+        <button type="button" class="button report-button">Generate Report</button>
+      </div>
+
+      <!-- Report 2: All reservations of any car within a specified period -->
+      <div class="form-group">
+        <label for="car-period">All Reservations of Any Car Within a Specified Period</label>
+        <input type="date" id="car-start-date" name="car-start-date" required>
+        <input type="date" id="car-end-date" name="car-end-date" required>
+        <button type="button" class="button report-button">Generate Report</button>
+      </div>
+
+      <!-- Report 3: Status of all cars on a specific day -->
+      <div class="form-group">
+        <label for="status-day">Status of All Cars on a Specific Day</label>
+        <input type="date" id="status-day" name="status-day" required>
+        <button type="button" class="button report-button">Generate Report</button>
+      </div>
+
+      <!-- Report 4: All reservations of a specific customer -->
+      <div class="form-group">
+        <label for="customer-id">All Reservations of Specific Customer</label>
+        <input type="text" id="customer-id" name="customer-id" placeholder="Enter Customer ID" required>
+        <button type="button" class="button report-button">Generate Report</button>
+      </div>
+
+      <!-- Report 5: Daily payments within a specific period -->
+      <div class="form-group">
+        <label for="payment-period">Daily Payments Within a Specific Period</label>
+        <input type="date" id="payment-start-date" name="payment-start-date" required>
+        <input type="date" id="payment-end-date" name="payment-end-date" required>
+        <button type="button" class="button report-button">Generate Report</button>
+      </div>
+      
+    </form>
+  </div>
+</body>
+</html>

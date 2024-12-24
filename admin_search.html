@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Search</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Search</h1>
+    <form class="search-form">
+      <!-- Search by Car Information -->
+      <div class="form-group">
+        <label for="car-info">Car Info</label>
+        <input type="text" id="car-info" name="car-info" placeholder="Enter car model, plate number, etc.">
+      </div>
+
+      <!-- Search by Customer Information -->
+      <div class="form-group">
+        <label for="customer-info">Customer Info</label>
+        <input type="text" id="customer-info" name="customer-info" placeholder="Enter customer name, ID, etc.">
+      </div>
+
+      <!-- Search by Reservation Day -->
+      <div class="form-group">
+        <label for="reservation-day">Reservation Day</label>
+        <input type="date" id="reservation-day" name="reservation-day">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="button submit-button">Search</button>
+    </form>
+  </div>
+</body>
+</html>

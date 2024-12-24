@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Car</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Add Car</h1>
+    <form class="add-car-form">
+      <!-- Input Fields -->
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" id="model" name="model" placeholder="Enter car model" required>
+      </div>
+      <div class="form-group">
+        <label for="year">Year</label>
+        <input type="number" id="year" name="year" placeholder="Enter car year" required>
+      </div>
+      <div class="form-group">
+        <label for="plate-number">Plate Number</label>
+        <input type="text" id="plate-number" name="plate-number" placeholder="Enter plate number" required>
+      </div>
+      <div class="form-group">
+        <label for="rental-price">Rental Price Per Day</label>
+        <input type="number" id="rental-price" name="rental-price" placeholder="Enter rental price per day" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <label for="color">Color</label>
+        <input type="text" id="color" name="color" placeholder="Enter car color" required>
+      </div>
+      <div class="form-group">
+        <label for="office-id">Office ID</label>
+        <input type="number" id="office-id" name="office-id" placeholder="Enter office ID" required>
+      </div>
+      
+      <!-- Status Radio Buttons -->
+      <div class="form-group">
+        <label>Status</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="status" value="available" required>
+            <span class="bubble">Available</span>
+          </label>
+          <label>
+            <input type="radio" name="status" value="rented">
+            <span class="bubble">Rented</span>
+          </label>
+          <label>
+            <input type="radio" name="status" value="out-of-service">
+            <span class="bubble">Out of Service</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="button submit-button">Add Car</button>
+    </form>
+  </div>
+</body>
+</html>

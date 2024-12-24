@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Login Form</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <form action="loginconnection.php" method="post">
-            <h1>Login Form</h1> 
-            <input id="email" type="email" name="email" placeholder="Email" required>
-            <input id="pass" type="password" name="password" placeholder="Password" required>
-            <div class="user-type">
-                <label>
-                    <input type="radio" name="user_type" value="employee" required> Employee
-                </label>
-                <label>
-                    <input type="radio" name="user_type" value="customer" required> Customer
-                </label>
-            </div>
-            <button id="button" type="submit">Login</button> 
-            <A HREF = "http://localhost/lab4/signup.html" id = "link">Signup?</A>
-        </form>
-        <script src="script.js"></script>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin & Customer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome</h1>
+    <div class="button-group">
+      <button class="button admin-button">Admin</button>
+      <button class="button customer-button">Customer</button>
+    </div>
+  </div>
+</body>
 </html>
