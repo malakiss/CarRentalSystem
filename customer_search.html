@@ -8,14 +8,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Search</h1>
-        <form action="#" method="POST" class="search-form">
+        <h1>Search Cars</h1>
+
+        <!-- Search Form -->
+        <form action="display_cars.php" method="POST" class="search-form">
             <div class="form-group">
                 <label for="search_query">Search Car</label>
-                <input type="text" id="search_query" name="search_query" placeholder="Enter color, model, year, city, dates..." >
+                <input type="text" id="search_query" name="search_query" placeholder="Enter color, model, year, city, dates...">
             </div>
             <button type="submit" class="submit-button">Search</button>
         </form>
+
+        <!-- Available Cars Section -->
+<div class="available-cars">
+    <h2>Available Cars</h2>
+    <div class="car-list">
+        <?php include 'display_cars.php'; ?>
+    </div>
+</div>
+
     </div>
 </body>
 </html>
