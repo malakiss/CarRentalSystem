@@ -10,11 +10,28 @@
   <div class="container">
     <h1>Admin Menu</h1>
     <div class="button-group">
-      <button class="button add-car-button">Add Car</button>
-      <button class="button update-status-button">Update Status</button>
-      <button class="button search-button">Search</button>
+      <button class="button add-car-button" onclick="redirectToAddCar()">Add Car</button>
+      <button class="button update-status-button" onclick="redirectToUpdateStatus()">Update Status</button>
+      <button class="button search-button"onclick="redirectToSearch()">Search</button>
       <button class="button view-reports-button">View Reports</button>
     </div>
   </div>
+  <script>
+    function redirectToAddCar() {
+      window.location.href = "add_car.html";
+    }
+
+    function redirectToUpdateStatus() {
+      window.location.href = "update_status.html";
+    }
+
+    function redirectToSearch() {
+      window.location.href = "admin_search.html";
+    }
+
+
+
+  
+  </script>
 </body>
 </html>

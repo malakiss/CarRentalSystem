@@ -9,11 +9,11 @@
 <body>
   <div class="container">
     <h1>Update Car Status</h1>
-    <form class="update-status-form">
+    <form class="update-status-form" action="update_status.php" method="post">
       <!-- Plate Number Input -->
       <div class="form-group">
         <label for="plate-number">Plate Number</label>
-        <input type="text" id="plate-number" name="plate-number" placeholder="Enter plate number" required>
+        <input type="number" id="plate-number" name="plate-number" placeholder="Enter plate number" required>
       </div>
       
       <!-- Updated Status Radio Buttons -->
@@ -29,7 +29,7 @@
             <span class="bubble">Rented</span>
           </label>
           <label>
-            <input type="radio" name="status" value="out-of-service">
+            <input type="radio" name="status" value="out of service">
             <span class="bubble">Out of Service</span>
           </label>
         </div>
