@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['search_query'])) {
                 <?php if (!empty($cars)): ?>
                     <?php foreach ($cars as $car): ?>
                         <div class="card mb-4" style="min-width: 18rem;">
-                            <img class="card-img-top" src="carimage.jpeg" alt="Car Image">
+                            <img class="card-img-top" src="carimage2.jpeg" alt="Car Image">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo htmlspecialchars($car['model']); ?> (<?php echo htmlspecialchars($car['year']); ?>)</h5>
                                 <p class="card-text">
