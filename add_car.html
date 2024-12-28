@@ -9,7 +9,26 @@
 <body>
   <div class="container">
     <h1>Add Car</h1>
-    <form class="add-car-form">
+    <form class="add-car-form" action="add_car.php" method="post">
+      <script>
+        document.getElementById('add-car-form').addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent the default form submission
+      
+          const formData = new FormData(this);
+      
+          fetch('add_car.php', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.text())
+          .then(data => {
+            alert('Car added successfully!'); // Show success message
+          })
+          .catch(error => {
+            alert('Error adding car: ' + error); // Show error message
+          });
+        });
+      </script>
       <!-- Input Fields -->
       <div class="form-group">
         <label for="model">Model</label>
@@ -49,7 +68,7 @@
             <span class="bubble">Rented</span>
           </label>
           <label>
-            <input type="radio" name="status" value="out-of-service">
+            <input type="radio" name="status" value="out of service">
             <span class="bubble">Out of Service</span>
           </label>
         </div>
