@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Reports</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Generate Reports</h1>
+    <h1></h1>
+    <div class="form-group">
+      <h3>Report 1: Reservations by Date</h3>
+      <label for="start-date">Start Date:</label>
+      <input type="date" id="start-date" required>
+      <label for="end-date">End Date:</label>
+      <input type="date" id="end-date" required>
+      <button class="submit-button" onclick="handleReport1()">Generate Report</button>
+    </div>
+
+    <div class="form-group">
+      <h3>Report 2: Vehicle Reservations</h3>
+      <label for="car-start-date">Start Date:</label>
+      <input type="date" id="car-start-date" required>
+      <label for="car-end-date">End Date:</label>
+      <input type="date" id="car-end-date" required>
+      <button class="submit-button" onclick="handleReport2()">Generate Report</button>
+    </div>
+
+    <div class="form-group">
+      <h3>Report 3: Status by Day</h3>
+      <label for="status-day">Date:</label>
+      <input type="date" id="status-day" required>
+      <button class="submit-button" onclick="handleReport3()">Generate Report</button>
+    </div>
+
+    <div class="form-group">
+      <h3>Report 4: Customer Reservations</h3>
+      <label for="customer-id">Customer ID:</label>
+      <input type="number" id="customer-id" required>
+      <button class="submit-button" onclick="handleReport4()">Generate Report</button>
+    </div>
+
+    <div class="form-group">
+      <h3>Report 5: Payments Summary</h3>
+      <label for="payment-start-date">Start Date:</label>
+      <input type="date" id="payment-start-date" required>
+      <label for="payment-end-date">End Date:</label>
+      <input type="date" id="payment-end-date" required>
+      <button class="submit-button" onclick="handleReport5()">Generate Report</button>
+    </div>
+  </div>
+
+  <script>
+    function generateReport(action, params) {
+      const queryString = new URLSearchParams({ action, ...params }).toString();
+      window.location.href = `report-view.html?${queryString}`;
+    }
+
+    function handleReport1() {
+      const startDate = document.getElementById('start-date').value;
+      const endDate = document.getElementById('end-date').value;
+
+      if (startDate && endDate) {
+        generateReport('report1', { startDate, endDate });
+      } 
+      else if (startDate > endDate) {
+                alert("End date cannot be before the start date");
+                return false; // Prevent form submission
+            }
+      else {
+        alert('Please provide start and end dates.');
+      }
+    }
+
+    function handleReport2() {
+      const carStartDate = document.getElementById('car-start-date').value;
+      const carEndDate = document.getElementById('car-end-date').value;
+
+      if (carStartDate && carEndDate) {
+        generateReport('report2', { carStartDate, carEndDate });
+      }
+      else if (startDate > endDate) {
+                alert("End date cannot be before the start date");
+                return false; // Prevent form submission
+            }
+       else {
+        alert('Please provide start and end dates.');
+      }
+    }
+
+    function handleReport3() {
+      const statusDay = document.getElementById('status-day').value;
+      if (statusDay) {
+        generateReport('report3', { statusDay });
+      } else {
+        alert('Please provide a valid date.');
+      }
+    }
+
+    function handleReport4() {
+      const customerId = parseInt(document.getElementById('customer-id').value.trim(), 10);
+      if (!isNaN(customerId)) {
+        generateReport('report4', { customerId });
+      } else {
+        alert('Please provide a valid customer ID.');
+      }
+    }
+
+    function handleReport5() {
+      const paymentStartDate = document.getElementById('payment-start-date').value;
+      const paymentEndDate = document.getElementById('payment-end-date').value;
+      if (paymentStartDate && paymentEndDate) {
+        generateReport('report5', { paymentStartDate, paymentEndDate });
+      } 
+      else if (startDate > endDate) {
+                alert("End date cannot be before the start date");
+                return false; // Prevent form submission
+            }
+      else {
+        alert('Please provide valid start and end dates.');
+      }
+    }
+  </script>
+</body>
+</html>
