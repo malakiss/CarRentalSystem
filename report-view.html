@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report View</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 18px;
+      text-align: left;
+    }
+    .styled-table thead tr {
+      background-color: #009879;
+      color: #ffff;
+      text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+      padding: 12px 15px;
+    }
+    .styled-table tbody tr {
+      border-bottom: 1px solid #dddddd;
+    }
+    .styled-table tbody tr:nth-of-type(even) {
+      background-color: #1c1d05;
+    }
+    .styled-table tbody tr:last-of-type {
+      border-bottom: 2px solid #009879;
+    }
+    .styled-table tbody tr.active-row {
+      font-weight: bold;
+      color: #009879;
+    }
+    .submit-button {
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: #009879;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-button:hover {
+      background-color: #007f63;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="report-title">Report</h1>
+    <table id="report-table" class="styled-table">
+      <thead id="table-head"></thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    <button class="submit-button" style="font-size: 14px;" onclick="window.history.back()">Go Back</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const action = urlParams.get('action');
+      const params = Object.fromEntries(urlParams.entries());
+
+      if (action) {
+        fetch('reports.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(params),
+        })
+          .then(response => response.json())
+          .then(reportData => {
+            if (reportData.error) {
+              document.getElementById('report-title').textContent = 'Error: ' + reportData.error;
+            } else {
+              displayReportData(reportData, action);
+            }
+          })
+          .catch(error => {
+            document.getElementById('report-title').textContent = 'Error fetching report data';
+            console.error('Error:', error);
+          });
+      } else {
+        document.getElementById('report-title').textContent = 'No report selected';
+      }
+    });
+
+    function displayReportData(reportData, action) {
+      const reportTitles = {
+        report1: 'Report 1: Reservations by Date',
+        report2: 'Report 2: Vehicle Reservations',
+        report3: 'Report 3: Status By Day',
+        report4: 'Report 4: Customer Reservations',
+        report5: 'Report 5: Payments Summary',
+      };
+
+      const reportTitle = reportTitles[action] || 'Report';
+      document.getElementById('report-title').textContent = reportTitle;
+
+      if (reportData.length > 0) {
+        const headers = Object.keys(reportData[0]);
+        const tableHead = document.getElementById('table-head');
+        const headerRow = document.createElement('tr');
+
+        headers.forEach(header => {
+          const th = document.createElement('th');
+          th.textContent = header;
+          headerRow.appendChild(th);
+        });
+
+        tableHead.appendChild(headerRow);
+
+        const tableBody = document.getElementById('table-body');
+        reportData.forEach(row => {
+          const tableRow = document.createElement('tr');
+          headers.forEach(header => {
+            const td = document.createElement('td');
+            td.textContent = row[header];
+            tableRow.appendChild(td);
+          });
+          tableBody.appendChild(tableRow);
+        });
+      } else {
+        document.getElementById('report-title').textContent += ' - No Data Found';
+      }
+    }
+  </script>
+</body>
+</html>

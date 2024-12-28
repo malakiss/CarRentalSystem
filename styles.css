@@ -1,4 +1,9 @@
 /* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
     margin: 0;
     padding: 0;
@@ -32,89 +37,104 @@ body {
 
 /* Admin Button */
 .admin-button {
-    background-color: #7289DA; /* Blueish-grey button */
-    color: #FFFFFF;
-  }
-  
-  .admin-button:hover {
-    background-color: #5A6FB2; /* Darker blue-grey on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
-  }
-  
-  /* Customer Button */
-  .customer-button {
-    background-color: #43B581; /* Greenish-grey button */
-    color: #FFFFFF;
-  }
-  
-  .customer-button:hover {
-    background-color: #36A172; /* Darker green-grey on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
-  }
+  background-color: #7289DA;
+  /* Blueish-grey button */
+  color: #FFFFFF;
+}
 
-  .button {
-    padding: 15px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    min-width: 150px; /* Ensure uniform button width */
-    text-align: center;
-  }
-  
-  /* Button Colors and Styles */
-  .add-car-button {
-    background-color: #7289DA; /* Blueish-grey button */
-    color: #FFFFFF;
-  }
-  
-  .add-car-button:hover {
-    background-color: #5A6FB2; /* Darker blue-grey on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
-  }
-  
-  .update-status-button {
-    background-color: #F04747; /* Redish button */
-    color: #FFFFFF;
-  }
-  
-  .update-status-button:hover {
-    background-color: #B03838; /* Darker red on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
-  }
-  
-  .search-button {
-    background-color: #FAA61A; /* Yellowish button */
-    color: #FFFFFF;
-  }
-  
-  .search-button:hover {
-    background-color: #C5860F; /* Darker yellow on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
-  }
-  
-  .view-reports-button {
-    background-color: #43B581; /* Greenish-grey button */
-    color: #FFFFFF;
-  }
-  
-  .view-reports-button:hover {
-    background-color: #36A172; /* Darker green-grey on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
-  }
-  /* Add Car Form Styling */
+.admin-button:hover {
+  background-color: #5A6FB2;
+  /* Darker blue-grey on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Customer Button */
+.customer-button {
+  background-color: #43B581;
+  /* Greenish-grey button */
+  color: #FFFFFF;
+}
+
+.customer-button:hover {
+  background-color: #36A172;
+  /* Darker green-grey on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-width: 150px;
+  /* Ensure uniform button width */
+  text-align: center;
+}
+
+/* Button Colors and Styles */
+.add-car-button {
+  background-color: #7289DA;
+  /* Blueish-grey button */
+  color: #FFFFFF;
+}
+
+.add-car-button:hover {
+  background-color: #5A6FB2;
+  /* Darker blue-grey on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.update-status-button {
+  background-color: #F04747;
+  /* Redish button */
+  color: #FFFFFF;
+}
+
+.update-status-button:hover {
+  background-color: #B03838;
+  /* Darker red on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.search-button {
+  background-color: #FAA61A;
+  /* Yellowish button */
+  color: #FFFFFF;
+}
+
+.search-button:hover {
+  background-color: #C5860F;
+  /* Darker yellow on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.view-reports-button {
+  background-color: #43B581;
+  /* Greenish-grey button */
+  color: #FFFFFF;
+}
+
+.view-reports-button:hover {
+  background-color: #36A172;
+  /* Darker green-grey on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Add Car Form Styling */
 .add-car-form {
   max-width: 400px;
   margin: 0 auto;
-  background-color: #23272A; /* Slightly darker grey */
+  background-color: #23272A;
+  /* Slightly darker grey */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -122,12 +142,14 @@ body {
 
 .form-group {
   margin-bottom: 15px;
+  overflow: hidden;
 }
 
 label {
   display: block;
   font-size: 1rem;
-  color: #99AAB5; /* Lighter grey for labels */
+  color: #99AAB5;
+  /* Lighter grey for labels */
   margin-bottom: 5px;
 }
 
@@ -138,13 +160,16 @@ input[type="number"] {
   font-size: 1rem;
   border: none;
   border-radius: 5px;
-  background-color: #2C2F33; /* Space grey input */
-  color: #FFFFFF; /* White text */
+  background-color: #2C2F33;
+  /* Space grey input */
+  color: #FFFFFF;
+  /* White text */
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus {
-  outline: 2px solid #7289DA; /* Blue border on focus */
+  outline: 2px solid #7289DA;
+  /* Blue border on focus */
 }
 
 .radio-group {
@@ -165,108 +190,126 @@ input[type="radio"] {
   display: none;
 }
 
-input[type="radio"] + .bubble {
+input[type="radio"]+.bubble {
   padding: 10px 15px;
   font-size: 0.9rem;
   border-radius: 20px;
-  background-color: #7289DA; /* Blueish-grey bubble */
+  background-color: #7289DA;
+  /* Blueish-grey bubble */
   color: #FFFFFF;
   transition: background-color 0.2s, transform 0.2s;
 }
 
-input[type="radio"]:checked + .bubble {
-  background-color: #5A6FB2; /* Darker blue-grey when selected */
+input[type="radio"]:checked+.bubble {
+  background-color: #5A6FB2;
+  /* Darker blue-grey when selected */
   transform: scale(1.1);
 }
 
-  /* Input fields styling */
-  input[type="text"],
-  input[type="date"] {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    border: 2px solid #2C2F33; /* Darker grey border for better visibility */
-    border-radius: 5px;
-    background-color: #2C2F33; /* Space grey input background */
-    color: #FFFFFF; /* White text */
-  }
-  
-  input[type="text"]:focus,
-  input[type="date"]:focus {
-    outline: none;
-    border: 2px solid #7289DA; /* Blue border on focus for better visibility */
-    background-color: #35393F; /* Slightly lighter grey background on focus */
-  }
-  
+/* Input fields styling */
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #2C2F33;
+  /* Darker grey border for better visibility */
+  border-radius: 5px;
+  background-color: #2C2F33;
+  /* Space grey input background */
+  color: #FFFFFF;
+  /* White text */
+}
 
-  
-  /* Admin Search Form Styling */
+input[type="text"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border: 2px solid #7289DA;
+  /* Blue border on focus for better visibility */
+  background-color: #35393F;
+  /* Slightly lighter grey background on focus */
+}
+
+
+
+/* Admin Search Form Styling */
 .search-form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #23272A; /* Slightly darker grey */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  /* Form group styling */
-  .form-group {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-size: 1rem;
-    color: #99AAB5; /* Lighter grey for labels */
-    margin-bottom: 5px;
-  }
-  
-  /* Input fields styling */
-  input[type="text"],
-  input[type="date"] {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    border: 2px solid #2C2F33; /* Darker grey border for better visibility */
-    border-radius: 5px;
-    background-color: #2C2F33; /* Space grey input background */
-    color: #FFFFFF; /* White text */
-    box-sizing: border-box; /* Ensure padding doesn't cause shifting */
-  }
-  
-  /* Input focus state */
-  input[type="text"]:focus,
-  input[type="date"]:focus {
-    outline: none;
-    border: 2px solid #7289DA; /* Blue border on focus for better visibility */
-    background-color: #35393F; /* Slightly lighter grey background on focus */
-  }
-  
-  /* Button Styling */
-  .submit-button {
-    width: 100%;
-    background-color: #43B581; /* Green button */
-    color: #FFFFFF;
-    padding: 12px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
-    box-sizing: border-box; /* Ensure padding doesn't cause shifting */
-  }
-  
-  .submit-button:hover {
-    background-color: #36A172; /* Darker green on hover */
-    transform: translateY(-3px);
-  }
-  
-  /* Report Form Styling */
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #23272A;
+  /* Slightly darker grey */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Form group styling */
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  color: #99AAB5;
+  /* Lighter grey for labels */
+  margin-bottom: 5px;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #2C2F33;
+  /* Darker grey border for better visibility */
+  border-radius: 5px;
+  background-color: #2C2F33;
+  /* Space grey input background */
+  color: #FFFFFF;
+  /* White text */
+  box-sizing: border-box;
+  /* Ensure padding doesn't cause shifting */
+}
+
+/* Input focus state */
+input[type="text"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border: 2px solid #7289DA;
+  /* Blue border on focus for better visibility */
+  background-color: #35393F;
+  /* Slightly lighter grey background on focus */
+}
+
+/* Button Styling */
+.submit-button {
+  width: 100%;
+  background-color: #43B581;
+  /* Green button */
+  color: #FFFFFF;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-sizing: border-box;
+  /* Ensure padding doesn't cause shifting */
+}
+
+.submit-button:hover {
+  background-color: #36A172;
+  /* Darker green on hover */
+  transform: translateY(-3px);
+}
+
+/* Report Form Styling */
 .report-form {
     max-width: 600px;
     margin: 0 auto;
@@ -332,172 +375,237 @@ input[type="radio"]:checked + .bubble {
   }
 
 /* Form Styling */
-.login-form, .signup-form {
-    background-color: #23272A; /* Slightly darker grey */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.login-form,
+.signup-form {
+  background-color: #23272A;
+  /* Slightly darker grey */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  color: #99AAB5;
+  /* Lighter grey for labels */
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #2C2F33;
+  /* Darker grey border */
+  border-radius: 5px;
+  background-color: #2C2F33;
+  color: #FFFFFF;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border: 2px solid #7289DA;
+  /* Blue border on focus */
+  background-color: #35393F;
+}
+
+/* Button Styling */
+.submit-button {
+  width: 100%;
+  background-color: #43B581;
+  /* Green button */
+  color: #FFFFFF;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-sizing: border-box;
+}
+
+.submit-button:hover {
+  background-color: #36A172;
+  /* Darker green on hover */
+  transform: translateY(-3px);
+}
+
+/* Link Styling */
+a {
+  color: #7289DA;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.search-customer-form {
+  margin-bottom: 30px;
+  position: absolute; /* Keeps the search bar fixed */
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: #ffffff; /* White background for contrast */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.search-customer-form .form-group {
+  margin-bottom: 15px;
+}
+
+.search-customer-form input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-customer-form .submit-button {
+  background-color: #007bff; /* Bootstrap blue */
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-customer-form .submit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Styling for available cars section */
+.available-cars {
+  margin-top: 50px; /* Add space for the fixed search bar */
+  width: 100%;
+  text-align: center;
+}
+
+.available-cars h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.card-deck {
+  margin-top: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card {
+  min-width: 250px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.card-text {
+  color: #666;
+  font-size: 1rem;
+}
+
+.card .btn {
+  background-color: #28a745; /* Green color for Rent button */
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.card .btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+/* Mobile and Tablet Responsiveness */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    overflow: hidden;
   }
-  
-  .form-group {
-    margin-bottom: 15px;
+
+  h1 {
+    font-size: 2rem;
   }
-  
-  label {
-    display: block;
-    font-size: 1rem;
-    color: #99AAB5; /* Lighter grey for labels */
-    margin-bottom: 5px;
-  }
-  
+
   input[type="text"],
   input[type="email"],
   input[type="password"],
   input[type="tel"] {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    border: 2px solid #2C2F33; /* Darker grey border */
-    border-radius: 5px;
-    background-color: #2C2F33;
-    color: #FFFFFF;
-    box-sizing: border-box;
+    font-size: 0.9rem;
   }
-  
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="password"]:focus,
-  input[type="tel"]:focus {
-    outline: none;
-    border: 2px solid #7289DA; /* Blue border on focus */
-    background-color: #35393F;
-  }
-  
-  /* Button Styling */
+
   .submit-button {
-    width: 100%;
-    background-color: #43B581; /* Green button */
-    color: #FFFFFF;
-    padding: 12px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
-    box-sizing: border-box;
+    font-size: 0.9rem;
   }
-  
-  .submit-button:hover {
-    background-color: #36A172; /* Darker green on hover */
-    transform: translateY(-3px);
-  }
-  
-  /* Link Styling */
-  a {
-    color: #7289DA;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Mobile and Tablet Responsiveness */
-  @media (max-width: 600px) {
-    .container {
-      width: 90%;
-    }
-  
-    h1 {
-      font-size: 2rem;
-    }
-  
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="tel"] {
-      font-size: 0.9rem;
-    }
-  
-    .submit-button {
-      font-size: 0.9rem;
-    }
-    .search-form {
-        background-color: #23272A; /* Slightly darker grey for the form */
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      }
-      
-      .search-form .form-group {
-        margin-bottom: 15px;
-      }
-      
-      .search-form label {
-        display: block;
-        font-size: 1rem;
-        color: #99AAB5; /* Lighter grey for labels */
-        margin-bottom: 5px;
-      }
-      
-      .search-form input[type="text"],
-      .search-form input[type="number"],
-      .search-form input[type="date"] {
-        width: 100%;
-        padding: 12px;
-        font-size: 1rem;
-        border: 2px solid #2C2F33; /* Darker grey border */
-        border-radius: 5px;
-        background-color: #2C2F33;
-        color: #FFFFFF;
-        box-sizing: border-box;
-      }
-      
-      .search-form input[type="text"]:focus,
-      .search-form input[type="number"]:focus,
-      .search-form input[type="date"]:focus {
-        outline: none;
-        border: 2px solid #7289DA; /* Blue border on focus */
-        background-color: #35393F;
-      }
-      
-      .search-form .submit-button {
-        width: 100%;
-        background-color: #43B581; /* Green button */
-        color: #FFFFFF;
-        padding: 12px;
-        font-size: 1rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.2s, transform 0.2s;
-        box-sizing: border-box;
-      }
-      
-      .search-form .submit-button:hover {
-        background-color: #36A172; /* Darker green on hover */
-        transform: translateY(-3px);
-      }
-      /* Reservation Form Styles */
-.reservation-form {
-    background-color: #23272A; /* Slightly darker grey for the form */
+
+  .search-form {
+    background-color: #23272A;
+    /* Slightly darker grey for the form */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 500px;
+    overflow: hidden;
   }
-  
-  .reservation-form .form-group {
+  .search-form .form-group {
     margin-bottom: 15px;
+    overflow: hidden;
   }
   
-  .reservation-form label {
+  /* Add the new styles here */
+  .search-form label {
     display: block;
     font-size: 1rem;
     color: #99AAB5; /* Lighter grey for labels */
     margin-bottom: 5px;
   }
   
-  .reservation-form input[type="date"] {
+  .search-form input[type="text"],
+  .search-form input[type="date"] {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
@@ -505,16 +613,17 @@ input[type="radio"]:checked + .bubble {
     border-radius: 5px;
     background-color: #2C2F33;
     color: #FFFFFF;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensure padding doesn't cause shifting */
   }
   
-  .reservation-form input[type="date"]:focus {
+  .search-form input[type="text"]:focus,
+  .search-form input[type="date"]:focus {
     outline: none;
     border: 2px solid #7289DA; /* Blue border on focus */
-    background-color: #35393F;
+    background-color: #35393F; /* Slightly lighter grey background on focus */
   }
   
-  .reservation-form .submit-button {
+  .search-form .submit-button {
     width: 100%;
     background-color: #43B581; /* Green button */
     color: #FFFFFF;
@@ -524,12 +633,179 @@ input[type="radio"]:checked + .bubble {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensure padding doesn't cause shifting */
   }
   
-  .reservation-form .submit-button:hover {
+  .search-form .submit-button:hover {
     background-color: #36A172; /* Darker green on hover */
     transform: translateY(-3px);
   }
   
+  /* Reservation Form Styles */
+  .reservation-form {
+    background-color: #23272A;
+    /* Slightly darker grey for the form */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
+
+  .reservation-form .form-group {
+    margin-bottom: 15px;
+  }
+
+  .reservation-form label {
+    display: block;
+    font-size: 1rem;
+    color: #99AAB5;
+    /* Lighter grey for labels */
+    margin-bottom: 5px;
+  }
+
+  .reservation-form input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #2C2F33;
+    /* Darker grey border */
+    border-radius: 5px;
+    background-color: #2C2F33;
+    color: #FFFFFF;
+    box-sizing: border-box;
+  }
+
+  .reservation-form input[type="date"]:focus {
+    outline: none;
+    border: 2px solid #7289DA;
+    /* Blue border on focus */
+    background-color: #35393F;
+  }
+
+  .reservation-form .submit-button {
+    width: 100%;
+    background-color: #43B581;
+    /* Green button */
+    color: #FFFFFF;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    box-sizing: border-box;
+  }
+
+  .reservation-form .submit-button:hover {
+    background-color: #36A172;
+    /* Darker green on hover */
+    transform: translateY(-3px);
+  }
+
+.search-customer-form {
+  margin-bottom: 30px;
+  position: fixed; /* Keeps the search bar fixed */
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: #ffffff; /* White background for contrast */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.search-customer-form .form-group {
+  margin-bottom: 15px;
+}
+
+.search-customer-form input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-customer-form .submit-button {
+  background-color: #007bff; /* Bootstrap blue */
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-customer-form .submit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Styling for available cars section */
+.available-cars {
+  margin-top: 120px; /* Add space for the fixed search bar */
+  width: 100%;
+  text-align: center;
+}
+
+.available-cars h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  min-width: 250px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.card-text {
+  color: #666;
+  font-size: 1rem;
+}
+
+.card .btn {
+  background-color: #28a745; /* Green color for Rent button */
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.card .btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+}  

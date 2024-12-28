@@ -7,18 +7,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $user_check_query = "SELECT * FROM customer WHERE email = '$email' AND password = '$password'";
+    $user_check_query = "SELECT * FROM customer WHERE email = '$email'";
     $result = mysqli_query($conn, $user_check_query);
 
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            $_SESSION['customer_id'] = $row['customer_id'];
-            $_SESSION['name'] = $row['name'];
-            header('Location: customer_search.html');
-            exit;
+
+
+            if ($password== $row['password']) {
+                $_SESSION['customer_id'] = $row['customer_id'];
+                $_SESSION['name'] = $row['name'];
+                header('Location: customer_search.php');
+                exit;
+            } else {
+                // Incorrect password
+                echo '<script>
+                        alert("Incorrect password. Please try again!");
+                        window.location.href = "customer_search.php";
+                      </script>';
+            }
         } else {
-            echo "Email or password are incorrect!";
+            // Email not found
+            echo '<script>
+                    alert("No account found with this email. Please sign up!");
+                    window.location.href = "signup.html";
+                  </script>';
         }
     } else {
         echo "Error in query: " . mysqli_error($conn);

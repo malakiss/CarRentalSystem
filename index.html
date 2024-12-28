@@ -10,8 +10,12 @@
   <div class="container">
     <h1>Welcome</h1>
     <div class="button-group">
-      <button class="button admin-button">Admin</button>
-      <button class="button customer-button">Customer</button>
+      <form action="index.php" method="POST">
+        <button type="submit" name="role" value="Admin" class="button admin-button">Admin</button>
+      </form>
+      <form action="index.php" method="POST">
+        <button type="submit" name="role" value="Customer" class="button customer-button">Customer</button>
+      </form>
     </div>
   </div>
 </body>
