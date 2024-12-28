@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_query($conn, $insertQuery)) {
       $_SESSION['customer_id'] = $row['customer_id'];
       $_SESSION['name'] = $row['name'];
-      header('Location: customer_search.html');
+      header('Location: customer_search.php');
       exit;
     } else {
         echo '<script>

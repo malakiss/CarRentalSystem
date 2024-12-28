@@ -18,13 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($password== $row['password']) {
                 $_SESSION['customer_id'] = $row['customer_id'];
                 $_SESSION['name'] = $row['name'];
-                header('Location: customer_search.html');
+                header('Location: customer_search.php');
                 exit;
             } else {
                 // Incorrect password
                 echo '<script>
                         alert("Incorrect password. Please try again!");
-                        window.location.href = "customer_search.html";
+                        window.location.href = "customer_search.php";
                       </script>';
             }
         } else {
