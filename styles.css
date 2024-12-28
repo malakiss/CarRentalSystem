@@ -7,14 +7,29 @@ body {
     color: #FFFFFF; /* White text */
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    overflow: auto;
   }
+  html {
+    scroll-padding-top: 50px; /* Adjust this value based on your header height */
+}
   
   .container {
     text-align: center;
+    margin-top: 20px;
+    padding-top: 20px; 
+    min-height: 100vh;
   }
-  
+  h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em; /* margin-block-start */
+    margin-bottom: 1em; /* margin-block-end */
+    margin-left: 0; /* margin-inline-start */
+    margin-right: 0; /* margin-inline-end */
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
   h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -277,12 +292,16 @@ input[type="radio"]:checked + .bubble {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    max-height: 80vh;
+  
   }
   
   /* Form group styling */
   .form-group {
     width: 100%;
     margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
   }
   
   label {
