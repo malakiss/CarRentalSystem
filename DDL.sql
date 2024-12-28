@@ -25,7 +25,6 @@ CREATE TABLE vehicle (
     dailyPrice DECIMAL(10,1) NOT NULL,
     year INT,
     model VARCHAR(100) NOT NULL,
-    status VARCHAR(20) NOT NULL CHECK (status IN ('available', 'out of service', 'rented')),
     officeId INT,
     FOREIGN KEY (officeId) REFERENCES office(officeId)
 );
@@ -35,12 +34,20 @@ CREATE TABLE reservation (
     reserveId INT PRIMARY KEY AUTO_INCREMENT,
     plateNo INT,
     customerId INT,
-    reservationDate DATETIME,
-    returnDate DATETIME,
-    pickupDate DATETIME,
+    reservationDate DATE,
+    returnDate DATE,
+    pickupDate DATE,
     payment DECIMAL(10,1),
     officeId INT,
     FOREIGN KEY (plateNo) REFERENCES vehicle(plateNo),
     FOREIGN KEY (customerId) REFERENCES customer(customerId),
     FOREIGN KEY (officeId) REFERENCES office(officeId)
+);
+
+CREATE TABLE vehicle_status (
+    plateNo INT NOT NULL,
+    statusDate DATE NOT NULL,
+    status ENUM('available', 'out of service', 'rented') NOT NULL,
+    PRIMARY KEY (plateNo, statusDate, status),
+    FOREIGN KEY (plateNo) REFERENCES vehicle(plateNo)
 );
