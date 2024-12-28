@@ -47,12 +47,22 @@ if (!empty($carInfo) ) {
 $params = [];
 $types = "";
 $query = "SELECT 
-            v.plateNo, v.model, v.color, v.dailyPrice, v.year, v.status,
+            v.plateNo, v.model, v.color, v.dailyPrice, v.year,
+            vs.status AS currentStatus, vs.statusDate AS statusLastUpdated,
             c.customerId, c.name AS customerName, c.email, c.phoneNumber,
             r.reserveId, r.reservationDate, r.pickupDate, r.returnDate, r.payment
           FROM vehicle v
           LEFT JOIN reservation r ON v.plateNo = r.plateNo
           LEFT JOIN customer c ON r.customerId = c.customerId
+          LEFT JOIN (
+              SELECT plateNo, status, statusDate
+              FROM vehicle_status AS vs1
+              WHERE statusDate = (
+                  SELECT MAX(statusDate)
+                  FROM vehicle_status AS vs2
+                  WHERE vs1.plateNo = vs2.plateNo AND vs2.statusDate <= CURRENT_DATE()
+              )
+          ) AS vs ON v.plateNo = vs.plateNo
           WHERE 1=1";
 
 $carInfoParts = explode(' ', $carInfo);
@@ -100,7 +110,7 @@ $result = $stmt->get_result();
                 <td>{$row['color']}</td>
                 <td>{$row['dailyPrice']}</td>
                 <td>{$row['year']}</td>
-                <td>{$row['status']}</td>
+                <td>{$row['currentStatus']}</td>
                 <td>{$row['customerId']}</td>
                 <td>{$row['customerName']}</td>
                 <td>{$row['email']}</td>
@@ -125,12 +135,21 @@ if (!empty($customerInfo)) {
     $params = [];
 $types = "";
 $query = "SELECT 
-            v.plateNo, v.model, v.color, v.dailyPrice, v.year, v.status,
+            v.plateNo, v.model, v.color, v.dailyPrice, v.year, vs.status,
             c.customerId, c.name AS customerName, c.email, c.phoneNumber,
             r.reserveId, r.reservationDate, r.pickupDate, r.returnDate, r.payment
           FROM customer c
           LEFT JOIN reservation r ON c.customerId = r.customerId
           LEFT JOIN vehicle v ON r.plateNo = v.plateNo
+           LEFT JOIN (
+              SELECT plateNo, status, statusDate
+              FROM vehicle_status AS vs1
+              WHERE statusDate = (
+                  SELECT MAX(statusDate)
+                  FROM vehicle_status AS vs2
+                  WHERE vs1.plateNo = vs2.plateNo AND vs2.statusDate <= CURRENT_DATE()
+              )
+          ) AS vs ON v.plateNo = vs.plateNo
           WHERE 1=1";
 
 $customerInfoParts = explode(' ', $customerInfo);
@@ -202,12 +221,21 @@ if (!empty($reservationDay)) {
     $params = [];
 $types = "";
 $query = "SELECT 
-            v.plateNo, v.model, v.color, v.dailyPrice, v.year, v.status,
+            v.plateNo, v.model, v.color, v.dailyPrice, v.year, vs.status,
             c.customerId, c.name AS customerName, c.email, c.phoneNumber,
             r.reserveId, r.reservationDate, r.pickupDate, r.returnDate, r.payment
           FROM reservation r
           LEFT JOIN vehicle v ON r.plateNo = v.plateNo
           LEFT JOIN customer c ON r.customerId = c.customerId
+           LEFT JOIN (
+              SELECT plateNo, status, statusDate
+              FROM vehicle_status AS vs1
+              WHERE statusDate = (
+                  SELECT MAX(statusDate)
+                  FROM vehicle_status AS vs2
+                  WHERE vs1.plateNo = vs2.plateNo AND vs2.statusDate <= CURRENT_DATE()
+              )
+          ) AS vs ON v.plateNo = vs.plateNo
           WHERE 1=1";
 
 $customerInfoParts = explode(' ', $reservationDay);
