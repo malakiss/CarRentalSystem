@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
             if ($password== $row['password']) {
-                $_SESSION['customer_id'] = $row['customer_id'];
+                $_SESSION['customer_id'] = $row['customerId'];
                 $_SESSION['name'] = $row['name'];
                 header('Location: customer_search.php');
                 exit;
