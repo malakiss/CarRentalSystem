@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include 'connection.php'; // Include the database connection
 
@@ -9,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $confirmPassword = $_POST['confirm-password'];
     $phone = $_POST['phone'];
 
-    // Validate the form data
+    // Validate the pass
     if ($password !== $confirmPassword) {
         echo '<script>
                 alert("Passwords do not match!");
@@ -36,7 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     VALUES ('$name', '$email', '$password', '$phone')";
 
     if (mysqli_query($conn, $insertQuery)) {
-      $_SESSION['customer_id'] = $row['customer_id'];
+      $user_check_query = "SELECT * FROM customer WHERE email = '$email'";
+      $result = mysqli_query($conn, $user_check_query);
+      $row = mysqli_fetch_assoc($result);
+      $_SESSION['customer_id'] = $row['customerId'];
       $_SESSION['name'] = $row['name'];
       header('Location: customer_search.php');
       exit;

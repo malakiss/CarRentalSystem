@@ -1,71 +1,50 @@
--- Insert data into the office table
-INSERT INTO office (city, contactNumber) VALUES 
+use carrentalsystem;
+-- Inserting data into the office table
+INSERT INTO office (city, contactNumber)
+VALUES 
 ('New York', '123-456-7890'),
-('Los Angeles', '987-654-3210'),
-('Chicago', '555-123-4567');
+('Los Angeles', '234-567-8901'),
+('Chicago', '345-678-9012'),
+('Miami', '456-789-0123'),
+('San Francisco', '567-890-1234');
 
--- Insert data into the customer table
-INSERT INTO customer (name, password, email, phoneNumber) VALUES 
-('Alice Johnson', 'alice123', 'alice@example.com', '111-222-3333'),
-('Bob Smith', 'bob456', 'bob@example.com', '444-555-6666'),
-('Charlie Brown', 'charlie789', 'charlie@example.com', '777-888-9999');
+-- Inserting data into the customer table
+INSERT INTO customer (name, password, email, phoneNumber)
+VALUES
+('John Doe', 'password123', 'johndoe@example.com', '111-222-3333'),
+('Jane Smith', 'password456', 'janesmith@example.com', '222-333-4444'),
+('David Johnson', 'password789', 'davidj@example.com', '333-444-5555'),
+('Emily Davis', 'password321', 'emilydavis@example.com', '444-555-6666'),
+('Michael Brown', 'password654', 'michaelbrown@example.com', '555-666-7777');
 
--- Insert data into the vehicle table
-INSERT INTO vehicle (color, dailyPrice, year, model, officeId) VALUES 
-('Red', 50.0, 2020, 'Toyota Corolla', 1),
-('Blue', 70.5, 2021, 'Honda Civic', 2),
-('Black', 100.0, 2019, 'BMW 3 Series', 3);
+-- Inserting data into the vehicle table
+INSERT INTO vehicle (color, dailyPrice, year, model, officeId)
+VALUES 
+('Red', 49.99, 2022, 'Toyota Corolla', 1),
+('Blue', 59.99, 2021, 'Honda Civic', 2),
+('Black', 79.99, 2023, 'BMW 320i', 3),
+('White', 89.99, 2022, 'Mercedes Benz E-Class', 4),
+('Silver', 69.99, 2021, 'Audi A4', 5);
 
--- Insert data into the reservation table
-INSERT INTO reservation (plateNo, customerId, reservationDate, returnDate, pickupDate, payment, officeId) VALUES 
-(1, 1, '2024-12-20', '2024-12-25', '2024-12-21', 250.0, 1),
-(2, 2, '2024-12-22', '2024-12-28', '2024-12-23', 423.0, 2),
-(3, 3, '2024-12-23', '2024-12-30', '2024-12-24', 700.0, 3);
+-- Inserting data into the reservation table
+INSERT INTO reservation (plateNo, customerId, reservationDate, returnDate, pickupDate, payment, officeId)
+VALUES
+(1, 1, '2024-12-01 10:00:00', '2024-12-07 10:00:00', '2024-12-01 12:00:00', 349.95, 1),
+(2, 2, '2024-12-02 14:00:00', '2024-12-05 14:00:00', '2024-12-02 16:00:00', 179.95, 2),
+(3, 3, '2024-12-03 09:00:00', '2024-12-08 09:00:00', '2024-12-03 11:00:00', 399.95, 3),
+(4, 4, '2024-12-04 10:30:00', '2024-12-10 10:30:00', '2024-12-04 13:00:00', 539.95, 4),
+(5, 5, '2024-12-05 11:00:00', '2024-12-09 11:00:00', '2024-12-05 14:00:00', 279.95, 5);
 
--- Insert data into the vehicle_status table
-INSERT INTO vehicle_status (plateNo, statusDate, status) VALUES 
-(1, '2024-12-20', 'rented'),
-(2, '2024-12-22', 'rented'),
-(3, '2024-12-23', 'available');
-
--- Insert more data into the office table
-INSERT INTO office (city, contactNumber) VALUES 
-('San Francisco', '888-999-0000'),
-('Miami', '222-333-4444'),
-('Houston', '666-777-8888');
-
--- Insert more data into the customer table
-INSERT INTO customer (name, password, email, phoneNumber) VALUES 
-('Diana Prince', 'wonder123', 'diana@example.com', '123-987-6543'),
-('Bruce Wayne', 'batman456', 'bruce@example.com', '321-654-9870'),
-('Clark Kent', 'superman789', 'clark@example.com', '456-789-1234'),
-('Lois Lane', 'lois123', 'lois@example.com', '654-321-9876');
-
--- Insert more data into the vehicle table
-INSERT INTO vehicle (color, dailyPrice, year, model, officeId) VALUES 
-('White', 60.0, 2022, 'Nissan Altima', 4),
-('Silver', 80.0, 2020, 'Ford Escape', 5),
-('Gray', 95.0, 2021, 'Tesla Model 3', 6),
-('Green', 40.0, 2018, 'Chevrolet Spark', 4),
-('Yellow', 120.0, 2022, 'Lamborghini Huracan', 5);
-
--- Insert more data into the reservation table
-INSERT INTO reservation (plateNo, customerId, reservationDate, returnDate, pickupDate, payment, officeId) VALUES 
-(4, 4, '2024-12-24', '2024-12-29', '2024-12-25', 300.0, 4),
-(5, 5, '2024-12-26', '2025-01-01', '2024-12-27', 560.0, 5),
-(6, 6, '2024-12-28', '2025-01-03', '2024-12-29', 475.0, 6),
-(7, 2, '2024-12-29', '2025-01-02', '2024-12-30', 160.0, 4),
-(8, 1, '2024-12-30', '2025-01-04', '2024-12-31', 600.0, 5);
-
--- Insert more data into the vehicle_status table
-INSERT INTO vehicle_status (plateNo, statusDate, status) VALUES 
-(4, '2024-12-24', 'rented'),
-(5, '2024-12-26', 'rented'),
-(6, '2024-12-28', 'available'),
-(7, '2024-12-29', 'available'),
-(8, '2024-12-30', 'out of service');
-
-INSERT INTO vehicle_status (plateNo, statusDate, status) VALUES 
-(4, '2024-12-26', 'available'),
-(5, '2024-12-27', 'out of service');
-
+-- Inserting data into the vehicle_status table
+INSERT INTO vehicle_status (plateNo, statusDate, status)
+VALUES
+(1, '2024-12-01 10:00:00', 'rented'),
+(2, '2024-12-02 14:00:00', 'rented'),
+(3, '2024-12-03 09:00:00', 'available'),
+(4, '2024-12-04 10:30:00', 'rented'),
+(5, '2024-12-05 11:00:00', 'available'),
+(1, '2024-12-07 10:00:00', 'available'),
+(2, '2024-12-05 14:00:00', 'available'),
+(3, '2024-12-08 09:00:00', 'available'),
+(4, '2024-12-10 10:30:00', 'available'),
+(5, '2024-12-09 11:00:00', 'available');

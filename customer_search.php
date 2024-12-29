@@ -1,7 +1,15 @@
 <?php
 session_start();
 include 'connection.php'; // Include database connection
+if (isset($_GET['logout'])) {
+    // Destroy the session
+    session_unset();
+    session_destroy();
 
+    // Redirect to the index page
+    header("Location: index.html");
+    exit();
+}
 // Initialize variables
 $search_query = '';
 $cars = [];
@@ -29,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['search_query'])) {
     $where_clause = implode(' AND ', $conditions);
 
     // Final query
-    $sql = "SELECT v.plateNo, v.color, v.model, v.year, v.dailyPrice, o.city 
+    $sql = "SELECT distinct v.plateNo, v.color, v.model, v.year, v.dailyPrice, o.city 
             FROM vehicle v
             JOIN office o ON v.officeId = o.officeId
             WHERE  ($where_clause)";
@@ -43,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['search_query'])) {
 } else {
     // Default query to fetch all available cars
    
-    $sql =   "SELECT v.plateNo, v.color, v.model, v.year, v.dailyPrice, o.city, vs.status
+    $sql =   "SELECT distinct v.plateNo, v.color, v.model, v.year, v.dailyPrice, o.city
             FROM vehicle v
             JOIN office o ON v.officeId = o.officeId
             JOIN vehicle_status vs ON v.plateNo = vs.plateNo
@@ -72,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['search_query'])) {
 
 <body>
     <div class="container">
+    <a href="customer_search.php?logout=true" class="btn btn-danger" style="position: absolute; top: 10px; left: 10px;">Log Out</a>
         <h1>Search Cars</h1>
         <h1></h1>
         <!-- Search Form -->
@@ -100,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['search_query'])) {
                                     <strong>City:</strong> <?php echo htmlspecialchars($car['city']); ?><br>
                                     <strong>Daily Price:</strong> $<?php echo htmlspecialchars($car['dailyPrice']); ?>
                                 </p>
-                                <a href="reservation.html?plateNo=<?php echo urlencode($car['plateNo']); ?>" class="btn btn-primary">Rent</a>
+                                <a href="reservation.php?plateNo=<?php echo urlencode($car['plateNo']); ?>" class="btn btn-primary">Rent</a>
                             </div>
                         </div>
                     <?php endforeach; ?>

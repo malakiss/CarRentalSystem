@@ -14,18 +14,41 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: auto;
+
   }
+  html {
+    scroll-padding-top: 50px; /* Adjust this value based on your header height */
+}
+
   
   .container {
     text-align: center;
+    margin-top: 20px;
+    padding-top: 20px; 
+    min-height: 100vh;
+    margin-top: 50px; /* Adds space from the top */
+
   }
   
   h1 {
+    min-height: 60vh;
+    margin-top: 50px;
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #99AAB5; /* Lighter grey for heading */
   }
-  
+  h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em; /* margin-block-start */
+    margin-bottom: 1em; /* margin-block-end */
+    margin-left: 0; /* margin-inline-start */
+    margin-right: 0; /* margin-inline-end */
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
   /* Button Group */
   .button-group {
     display: flex;
@@ -230,6 +253,20 @@ input[type="date"]:focus {
   /* Slightly lighter grey background on focus */
 }
 
+.return-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f44336; /* Red color */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.return-button:hover {
+  background-color: #e53935; /* Darker red */
+}
 
 
 /* Admin Search Form Styling */
@@ -311,21 +348,25 @@ input[type="date"]:focus {
 
 /* Report Form Styling */
 .report-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #23272A; /* Slightly darker grey */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #23272A; /* Slightly darker grey */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-height: 80vh;
+
   }
   
   /* Form group styling */
   .form-group {
     width: 100%;
     margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
   }
   
   label {
@@ -568,7 +609,9 @@ a:hover {
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #99AAB5; /* Lighter grey for heading */
   }
 
   input[type="text"],

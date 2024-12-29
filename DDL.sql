@@ -34,9 +34,9 @@ CREATE TABLE reservation (
     reserveId INT PRIMARY KEY AUTO_INCREMENT,
     plateNo INT,
     customerId INT,
-    reservationDate DATE,
-    returnDate DATE,
-    pickupDate DATE,
+    reservationDate DATETIME,
+    returnDate DATETIME,
+    pickupDate DATETIME,
     payment DECIMAL(10,1),
     officeId INT,
     FOREIGN KEY (plateNo) REFERENCES vehicle(plateNo),
@@ -46,7 +46,7 @@ CREATE TABLE reservation (
 
 CREATE TABLE vehicle_status (
     plateNo INT NOT NULL,
-    statusDate DATE NOT NULL,
+    statusDate DATETIME NOT NULL,
     status ENUM('available', 'out of service', 'rented') NOT NULL,
     PRIMARY KEY (plateNo, statusDate, status),
     FOREIGN KEY (plateNo) REFERENCES vehicle(plateNo)
