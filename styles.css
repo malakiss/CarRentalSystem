@@ -24,9 +24,6 @@ body {
   
   .container {
     text-align: center;
-    margin-top: 20px;
-    padding-top: 20px; 
-    min-height: 100vh;
     margin-top: 50px; /* Adds space from the top */
 
   }
