@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $to_date = $_POST['to_date'];
 
     // Validate dates
-    $statusDate = date('Y-m-d H:i:s'); // Current date
+    $current_date = date('Y-m-d H:i:s'); // Current date
     if ($from_date < $current_date || $to_date < $from_date) {
         echo "Invalid date range. Please ensure 'From Date' is today or later and 'To Date' is after 'From Date'.";
         exit;
@@ -72,13 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $total_payment = $days * $daily_price;
 
     // Insert reservation into the database
-    // Insert reservation into the database
     $query = "
     INSERT INTO reservation (plateNo, customerId, reservationDate, returnDate, pickupDate, payment, officeId)
     VALUES (?, ?, ?, ?, ?, ?, ?)
     ";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("iisssdi", $plateNo, $customer_id, $from_date, $to_date, $from_date, $total_payment, $office_id);
+    $stmt->bind_param("iisssdi", $plateNo, $customer_id, $current_date, $to_date, $from_date, $total_payment, $office_id);
 
    
 if ($stmt->execute()) {
@@ -136,6 +135,7 @@ if ($stmt->execute()) {
             </div>
             <button type="submit" class="submit-button">Reserve</button>
         </form>
+        <a href="customer_search.php" class="return-button">Return to Search</a>
     </div>
 </body>
 </html>

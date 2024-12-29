@@ -37,6 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     VALUES ('$name', '$email', '$password', '$phone')";
 
     if (mysqli_query($conn, $insertQuery)) {
+      $user_check_query = "SELECT * FROM customer WHERE email = '$email'";
+      $result = mysqli_query($conn, $user_check_query);
+      $row = mysqli_fetch_assoc($result);
       $_SESSION['customer_id'] = $row['customerId'];
       $_SESSION['name'] = $row['name'];
       header('Location: customer_search.php');

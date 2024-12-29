@@ -1,7 +1,15 @@
 <?php
 session_start();
 include 'connection.php'; // Include database connection
+if (isset($_GET['logout'])) {
+    // Destroy the session
+    session_unset();
+    session_destroy();
 
+    // Redirect to the index page
+    header("Location: index.html");
+    exit();
+}
 // Initialize variables
 $search_query = '';
 $cars = [];
@@ -72,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['search_query'])) {
 
 <body>
     <div class="container">
+    <a href="customer_search.php?logout=true" class="btn btn-danger" style="position: absolute; top: 10px; left: 10px;">Log Out</a>
         <h1>Search Cars</h1>
         <h1></h1>
         <!-- Search Form -->
