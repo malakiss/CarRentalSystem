@@ -15,9 +15,9 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Retrieve form data
-    $plate_number = intval($_POST['plate-number']);
+    $plate_number = $conn->real_escape_string($_POST['plate-number']);
     $status = $conn->real_escape_string($_POST['status']);
-    $statusDate = date('Y-m-d');
+    $statusDate = date('Y-m-d H:i:s');
 
     // SQL query to update the car status
     $sql = "INSERT INTO vehicle_status (plateNo, statusDate, status) 
