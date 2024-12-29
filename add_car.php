@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
          alert("  Error adding vehicle: ")
          window.location.href = "add_car.html";
          </script>';
+         
     }
 }
 
