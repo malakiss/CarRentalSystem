@@ -58,12 +58,13 @@ $query = "SELECT
               SELECT plateNo, status, statusDate
               FROM vehicle_status AS vs1
               WHERE statusDate = (
-                  SELECT MAX(statusDate)
+                  SELECT MAX(vs2.statusDate)
                   FROM vehicle_status AS vs2
-                  WHERE vs1.plateNo = vs2.plateNo AND vs2.statusDate <= CURRENT_DATE()
+                  WHERE vs1.plateNo = vs2.plateNo
               )
           ) AS vs ON v.plateNo = vs.plateNo
           WHERE 1=1";
+
 
 $carInfoParts = explode(' ', $carInfo);
 $query .= " AND (";
@@ -145,9 +146,9 @@ $query = "SELECT
               SELECT plateNo, status, statusDate
               FROM vehicle_status AS vs1
               WHERE statusDate = (
-                  SELECT MAX(statusDate)
+                  SELECT MAX(vs2.statusDate)
                   FROM vehicle_status AS vs2
-                  WHERE vs1.plateNo = vs2.plateNo AND vs2.statusDate <= CURRENT_DATE()
+                  WHERE vs1.plateNo = vs2.plateNo
               )
           ) AS vs ON v.plateNo = vs.plateNo
           WHERE 1=1";
@@ -227,17 +228,17 @@ $query = "SELECT
           FROM reservation r
           LEFT JOIN vehicle v ON r.plateNo = v.plateNo
           LEFT JOIN customer c ON r.customerId = c.customerId
-           LEFT JOIN (
+            LEFT JOIN (
               SELECT plateNo, status, statusDate
               FROM vehicle_status AS vs1
               WHERE statusDate = (
-                  SELECT MAX(statusDate)
+                  SELECT MAX(vs2.statusDate)
                   FROM vehicle_status AS vs2
-                  WHERE vs1.plateNo = vs2.plateNo AND vs2.statusDate <= CURRENT_DATE()
+                  WHERE vs1.plateNo = vs2.plateNo
               )
           ) AS vs ON v.plateNo = vs.plateNo
           WHERE 1=1";
-
+          
 $customerInfoParts = explode(' ', $reservationDay);
 $query .= " AND (";
 $reservationConditions = [];

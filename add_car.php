@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $color = $conn->real_escape_string($_POST['color']);
     $officeId = intval($_POST['office-id']);
     $status = $conn->real_escape_string($_POST['status']);
-    $statusDate = date('Y-m-d'); // Current date
+    $statusDate = date('Y-m-d H:i:s'); // Current date
 
     // Insert into vehicle table
     $sql1 = "INSERT INTO vehicle (model, year, plateNo, dailyprice, color, officeId) 
