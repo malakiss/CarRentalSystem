@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['search_query'])) {
             WHERE vs.statusDate = (
                 SELECT MAX(vs2.statusDate)
                 FROM vehicle_status vs2
-                WHERE vs2.plateNo = vs.plateNo AND vs2.statusDate <= CURRENT_DATE() AND vs2.status = 'available' 
+                WHERE vs2.plateNo = vs.plateNo AND vs2.statusDate <= NOW() AND vs2.status = 'available' 
             )";
     $result = $conn->query($sql);
     $cars = $result->fetch_all(MYSQLI_ASSOC);

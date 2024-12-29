@@ -50,6 +50,11 @@
       <input type="date" id="payment-end-date" required>
       <button class="submit-button" onclick="handleReport5()">Generate Report</button>
     </div>
+
+    <div class="form-group">
+      <button class="back-button" onclick="goBack()">Back to Admin Page</button>
+    </div>
+
   </div>
 
   <script>
@@ -107,7 +112,9 @@
         alert('Please provide a valid customer ID.');
       }
     }
-
+    function goBack() {
+      window.location.href = 'admin.html';
+    }
     function handleReport5() {
       const paymentStartDate = document.getElementById('payment-start-date').value;
       const paymentEndDate = document.getElementById('payment-end-date').value;
