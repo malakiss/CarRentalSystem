@@ -23,6 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $officeId = intval($_POST['office-id']);
     $status = $conn->real_escape_string($_POST['status']);
     $statusDate = date('Y-m-d H:i:s'); // Current date
+     // Validate plate number: must be exactly 3 digits
+     if (!preg_match('/^\d{3}$/', $plate_number)) {
+        echo "<script>alert('Plate number must be exactly 3 digits.');</script>";
+        echo "<script>window.location.href = 'add_car.html';</script>";
+        exit();
+    }
 
     // Insert into vehicle table
     $sql1 = "INSERT INTO vehicle (model, year, plateNo, dailyprice, color, officeId) 

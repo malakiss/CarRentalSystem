@@ -50,6 +50,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
+    // Get the latest status of the vehicle
+    $query = "
+    SELECT status 
+    FROM vehicle_status 
+    WHERE plateNo = ? AND statusDate < NOW() 
+    ORDER BY statusDate DESC 
+    LIMIT 1
+";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $plateNo);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    if ($row) {
+        $latest_status = $row['status'];
+
+        // Check if the latest status is "out of service"
+        if ($latest_status === 'out of service') {
+            echo "The selected vehicle is currently out of service. Please choose a different car.";
+            exit;
+        }
+    } else {
+        echo "No status record found for the selected vehicle. Unable to proceed with the reservation.";
+        exit;
+    }
+
         // Get the daily price and officeId of the vehicle
     $query = "SELECT dailyPrice, officeId FROM vehicle WHERE plateNo = ?";
     $stmt = $conn->prepare($query);

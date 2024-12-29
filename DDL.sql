@@ -20,16 +20,26 @@ CREATE TABLE customer (
 
 -- Create the vehicle table
 CREATE TABLE vehicle (
-    plateNo INT PRIMARY KEY AUTO_INCREMENT,
+    plateNo INT PRIMARY KEY ,
     color VARCHAR(50),
     dailyPrice DECIMAL(10,1) NOT NULL,
     year INT,
     model VARCHAR(100) NOT NULL,
     officeId INT,
-    FOREIGN KEY (officeId) REFERENCES office(officeId)
+    FOREIGN KEY (officeId) REFERENCES office(officeId) 
 );
 
--- Create the reservation table
+CREATE TABLE vehicle_status (
+    plateNo INT NOT NULL,
+    statusDate DATETIME NOT NULL,
+    status ENUM('available', 'out of service', 'rented') NOT NULL,
+    PRIMARY KEY (plateNo, statusDate, status),
+    FOREIGN KEY (plateNo) REFERENCES vehicle(plateNo)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- Recreate the reservation table with cascading rules
 CREATE TABLE reservation (
     reserveId INT PRIMARY KEY AUTO_INCREMENT,
     plateNo INT,
@@ -39,15 +49,25 @@ CREATE TABLE reservation (
     pickupDate DATETIME,
     payment DECIMAL(10,1),
     officeId INT,
-    FOREIGN KEY (plateNo) REFERENCES vehicle(plateNo),
+    FOREIGN KEY (plateNo) REFERENCES vehicle(plateNo)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     FOREIGN KEY (customerId) REFERENCES customer(customerId),
     FOREIGN KEY (officeId) REFERENCES office(officeId)
 );
 
-CREATE TABLE vehicle_status (
-    plateNo INT NOT NULL,
-    statusDate DATETIME NOT NULL,
-    status ENUM('available', 'out of service', 'rented') NOT NULL,
-    PRIMARY KEY (plateNo, statusDate, status),
-    FOREIGN KEY (plateNo) REFERENCES vehicle(plateNo)
-);
+DELIMITER //
+
+CREATE TRIGGER plateNo_3digits_check
+BEFORE INSERT ON vehicle
+FOR EACH ROW
+BEGIN
+    -- Ensure plateNo is composed of exactly 3 digits
+    IF NEW.plateNo < 100 OR NEW.plateNo > 999 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'plateNo must be composed of exactly 3 digits';
+    END IF;
+END;
+//
+
+DELIMITER ;
