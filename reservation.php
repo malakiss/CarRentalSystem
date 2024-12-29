@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $to_date = $_POST['to_date'];
 
     // Validate dates
-    $current_date = date('Y-m-d');
+    $statusDate = date('Y-m-d H:i:s'); // Current date
     if ($from_date < $current_date || $to_date < $from_date) {
         echo "Invalid date range. Please ensure 'From Date' is today or later and 'To Date' is after 'From Date'.";
         exit;
