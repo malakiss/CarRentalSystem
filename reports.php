@@ -31,12 +31,10 @@ try {
                         v.dailyPrice,
                         v.year,
                         v.model,
-                        vs.status,
                         c.name,
                         c.phoneNumber 
                     FROM vehicle AS v
                     JOIN reservation AS r ON v.plateNo = r.plateNo
-                    JOIN vehicle_status As vs ON vs.plateNo=v.plateNo
                     JOIN customer AS c ON r.customerId = c.customerId
                     WHERE r.reservationDate BETWEEN '$startDate' AND '$endDate'";
             break;
@@ -44,24 +42,27 @@ try {
         case 'report2':
             $carStartDate = $conn->real_escape_string($request['carStartDate']);
             $carEndDate = $conn->real_escape_string($request['carEndDate']);
+            $carId = $conn->real_escape_string($request['carId']);
+            if (isset($request['carId']) && is_numeric($request['carId'])) {
+                $customerId = intval($request['carId']);
+            }
             $query = "SELECT  
                         v.color,
                         v.dailyPrice,
                         v.year,
                         v.model,
-                        vs.status,
                         r.reservationDate
                     FROM vehicle AS v
                     JOIN reservation AS r ON v.plateNo = r.plateNo
-                    JOIN vehicle_status As vs ON vs.plateNo=v.plateNo
-                    WHERE r.reservationDate BETWEEN '$carStartDate' AND '$carEndDate'";
+                    WHERE r.reservationDate BETWEEN '$carStartDate' AND '$carEndDate' AND v.plateNo = '$carId'";
             break;
 
         case 'report3':
             $statusDay = $conn->real_escape_string($request['statusDay']);
+            $statusDay = date('Y-m-d 23:59:59', strtotime($statusDay));
+
             $query = 
-                    "SELECT 
-                            vs.plateNo, 
+                    "SELECT vs.plateNo, 
                             v.model, 
                             vs.status, 
                             vs.statusDate

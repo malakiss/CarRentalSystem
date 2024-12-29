@@ -25,6 +25,8 @@
       <input type="date" id="car-start-date" required>
       <label for="car-end-date">End Date:</label>
       <input type="date" id="car-end-date" required>
+      <label for="car-id">Plate Number:</label>
+      <input type="number" id="car-id" required>
       <button class="submit-button" onclick="handleReport2()">Generate Report</button>
     </div>
 
@@ -82,9 +84,10 @@
     function handleReport2() {
       const carStartDate = document.getElementById('car-start-date').value;
       const carEndDate = document.getElementById('car-end-date').value;
+      const carId = parseInt(document.getElementById('car-id').value.trim(), 10);
 
-      if (carStartDate && carEndDate) {
-        generateReport('report2', { carStartDate, carEndDate });
+      if (carStartDate && carEndDate && !isNaN(carId)) {
+        generateReport('report2', { carStartDate, carEndDate , carId  });
       }
       else if (startDate > endDate) {
                 alert("End date cannot be before the start date");
