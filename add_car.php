@@ -40,13 +40,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: admin.html");
             exit();
         } else {
+
             echo "<script>alert('Error adding vehicle status: " . $conn->error . "');</script>";
         }
     } else {
-        echo "<script>alert('Error adding vehicle: " . $conn->error . "');</script>";
+        echo '<script>
+         alert("  Error adding vehicle: ")
+         window.location.href = "add_car.html";
+         </script>';
+         
     }
 }
 
 // Close the connection
 $conn->close();
 ?>
+
+<script>
+    function echoAlert(){
+        alert('Error adding vehicle: ');
+        return false;
+    }
+    </script>
